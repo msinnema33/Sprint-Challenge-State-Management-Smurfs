@@ -19,6 +19,7 @@ export const getData = () => dispatch => {
 };
 
 export const postData = () => dispatch => {
+  dispatch({ type: POST_SMURFS });
     axios
     .post("http://localhost:3333/smurfs")
   .then(res => {

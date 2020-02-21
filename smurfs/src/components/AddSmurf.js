@@ -7,7 +7,7 @@ import Axios from 'axios';
 const AddSmurf = props => {
     const [newSmurf, setNewSmurf] = useState({
         name: '',
-        age: '',
+        age: 50,
         height: '',
         id: Date.now
       });
@@ -22,6 +22,7 @@ const AddSmurf = props => {
         .post("http://localhost:3333/smurfs")
         .then(res => {
             console.log(res);
+
         })
         .catch(err => {
             console.log('post error', err);
@@ -46,7 +47,7 @@ const AddSmurf = props => {
                     />
                     
                     <input
-                        type='text'
+                        type='number'
                         placeholder='Enter age...'
                         // value={newSmurf.age}
                         onChange={handleChange}
