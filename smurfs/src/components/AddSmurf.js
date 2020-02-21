@@ -36,10 +36,9 @@ const AddSmurf = props => {
         ) : (
             <div className='add-smurf'>
                 <form onSubmit={handleSubmit(handlePostData)}>
-                    <h2>Add Smurf data</h2>
+                    <h2>Add a Smurf</h2>
                     <input
                         type='text'
-                        // name='name'
                         placeholder='Enter a name.... '
                         value={newSmurf.name}
                         onChange={handleChange}
@@ -48,7 +47,6 @@ const AddSmurf = props => {
                     
                     <input
                         type='number'
-                        // name='age'
                         placeholder='Enter age...'
                         value={newSmurf.age}
                         onChange={handleChange}
@@ -57,7 +55,6 @@ const AddSmurf = props => {
                     
                     <input
                         type='text'
-                        // name='height'
                         placeholder='Add height +cm'
                         value={newSmurf.height}
                         onChange={handleChange}
@@ -83,5 +80,5 @@ const AddSmurf = props => {
   
   export default connect(
     mapStateToProps,
-    {postData }
+    { postData }
   )(AddSmurf);
