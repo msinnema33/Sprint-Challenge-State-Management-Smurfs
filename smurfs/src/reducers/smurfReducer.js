@@ -30,7 +30,7 @@ export const smurfReducer = (state = initialState, action) => {
     case POST_SMURFS:
       return {
         ...state,
-        isFetchingData: false,
+        isFetchingData: true,
         smurfs: action.payload
       };  
     default:

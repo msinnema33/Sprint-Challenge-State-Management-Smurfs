@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm  } from 'react-hook-form';
 import { connect } from "react-redux";
 import { postData } from "../actions";
-import Axios from 'axios';
+// import Axios from 'axios';
 
 const AddSmurf = props => {
     const [newSmurf, setNewSmurf] = useState({
@@ -18,21 +18,21 @@ const AddSmurf = props => {
    const {register, handleSubmit} = useForm();
    
     const handlePostData = e => {
-        Axios
-        .post("http://localhost:3333/smurfs")
-        .then(res => {
-            console.log(res);
+        // Axios
+        // .post("http://localhost:3333/smurfs")
+        // .then(res => {
+        //     console.log(res);
 
-        })
-        .catch(err => {
-            console.log('post error', err);
-        })
+        // })
+        // .catch(err => {
+        //     console.log('post error', err);
+        // })
       e.preventDefault();
       props.postData();
     };
     return (
       <div>
-        {props.isPostingData ? (
+        {props.isFetchingData ? (
           <div>we are adding Smurfs</div>
         ) : (
             <div className='add-smurf'>

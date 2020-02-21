@@ -24,7 +24,7 @@ export const postData = () => dispatch => {
     .post("http://localhost:3333/smurfs")
   .then(res => {
     console.log(res);
-    dispatch({ type: POST_SMURFS, payload: res.data });
+    dispatch({ type: POST_SMURFS, payload: res });
   })
   .catch(err => {
     console.error("error posting data to api, err: ", err);
