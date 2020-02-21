@@ -40,15 +40,15 @@ const AddSmurf = props => {
                     <input
                         type='text'
                         placeholder='Enter a name.... '
-                        value={newSmurf.name}
+                        // value={newSmurf.name}
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 15})}
                     />
                     
                     <input
-                        type='number'
+                        type='text'
                         placeholder='Enter age...'
-                        value={newSmurf.age}
+                        // value={newSmurf.age}
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 3})}
                     />
@@ -56,7 +56,7 @@ const AddSmurf = props => {
                     <input
                         type='text'
                         placeholder='Add height +cm'
-                        value={newSmurf.height}
+                        // value={newSmurf.height}
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 10})}
                     />
