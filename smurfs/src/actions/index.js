@@ -18,19 +18,31 @@ export const getData = () => dispatch => {
   });
 };
 
-export const postData = () => dispatch => {
-  dispatch({ type: POST_SMURFS });
-    axios
-    .post("http://localhost:3333/smurfs")
-  .then(res => {
-    console.log(res);
-    dispatch({ type: POST_SMURFS, payload: res });
+export const postData = smurf =>dispatch=>{
+  dispatch ({type:"ADDING_SMURF"});
+  axios.post("http://localhost:3333/smurfs", smurf)
+  .then ( response=>{
+      console.log(response)
+      dispatch ({type: "POST_SMURFS", payload: response.data})
   })
-  .catch(err => {
-    console.error("error posting data to api, err: ", err);
-    dispatch({ type: SET_ERROR, payload: "Error posting data to api" });
-  });
-};
+  .catch (error=>{
+      console.log("no data posted", error)
+  })
+}
+
+// export const postData = () => dispatch => {
+//   dispatch({ type: POST_SMURFS });
+//     axios
+//     .post("http://localhost:3333/smurfs")
+//     .then(res => {
+//       console.log(res);
+//       dispatch({ type: UPDATE_SMURFS, payload: res });
+//     })
+//     .catch(err => {
+//       console.error("error posting data to api, err: ", err);
+//       dispatch({ type: SET_ERROR, payload: "Error posting data to api" });
+//     });
+// };
 
 
 //need to figure out post payload stuff

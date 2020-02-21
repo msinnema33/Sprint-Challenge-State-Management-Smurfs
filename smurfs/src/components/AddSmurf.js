@@ -9,7 +9,7 @@ const AddSmurf = props => {
         name: '',
         age: 50,
         height: '',
-        id: Date.now
+        // id: Date.now
       });
 
     const handleChange = e => {
@@ -18,30 +18,26 @@ const AddSmurf = props => {
    const {register, handleSubmit} = useForm();
    
     const handlePostData = e => {
-        // Axios
-        // .post("http://localhost:3333/smurfs")
-        // .then(res => {
-        //     console.log(res);
-
-        // })
-        // .catch(err => {
-        //     console.log('post error', err);
-        // })
       e.preventDefault();
-      props.postData();
+      props.postData(newSmurf);
+      setNewSmurf({
+        name: '',
+        age: 1,
+        height: ''
+      }); 
     };
     return (
       <div>
-        {props.isFetchingData ? (
+        {props.isPostingData ? (
           <div>we are adding Smurfs</div>
         ) : (
             <div className='add-smurf'>
-                <form onSubmit={handleSubmit(handlePostData)}>
+                <form onSubmit={handleSubmit}>
                     <h2>Add a Smurf</h2>
                     <input
                         type='text'
+                        name='name'
                         placeholder='Enter a name.... '
-                        // value={newSmurf.name}
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 15})}
                     />
@@ -49,22 +45,19 @@ const AddSmurf = props => {
                     <input
                         type='number'
                         placeholder='Enter age...'
-                        // value={newSmurf.age}
+                        name="age"
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 3})}
                     />
                     
                     <input
                         type='text'
+                        name='height'
                         placeholder='Add height +cm'
-                        // value={newSmurf.height}
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 10})}
                     />
-                    
-
-                    <br />
-
+                   <br />
                     <button onClick={handlePostData}>Update my Smurfs!!</button>
                     {/* <input className='submit' type='submit' /> */}
                 </form>
@@ -83,3 +76,15 @@ const AddSmurf = props => {
     mapStateToProps,
     { postData }
   )(AddSmurf);
+
+
+
+  // Axios
+        // .post("http://localhost:3333/smurfs")
+        // .then(res => {
+        //     console.log(res);
+
+        // })
+        // .catch(err => {
+        //     console.log('post error', err);
+        // })

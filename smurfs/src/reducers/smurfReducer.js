@@ -4,7 +4,6 @@ const initialState = {
   smurfs: [],
   isFetchingData: false,
   error: "",
-  id: 999
 };
 
 export const smurfReducer = (state = initialState, action) => {
@@ -30,8 +29,10 @@ export const smurfReducer = (state = initialState, action) => {
     case POST_SMURFS:
       return {
         ...state,
-        isFetchingData: true,
-        smurfs: action.payload
+        // isFetchingData: action.payload,
+        id: Date.now(),
+        // isPostingData: [],
+        // smurfs: action.payload.data
       };  
     default:
       return state;
