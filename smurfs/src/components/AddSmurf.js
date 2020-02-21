@@ -8,23 +8,24 @@ const AddSmurf = props => {
     const [newSmurf, setNewSmurf] = useState({
         name: '',
         age: '',
-        height: ''
+        height: '',
+        id: Date.now
       });
 
     const handleChange = e => {
         setNewSmurf({...newSmurf, [e.target.name]: e.target.value});
     };  
-   const {register, handleSubmit, error } = useForm();
+   const {register, handleSubmit} = useForm();
    
     const handlePostData = e => {
-        // Axios
-        // .post("http://localhost:3333/smurfs")
-        // .then(res => {
-        //     console.log(res);
-        // })
-        // .catch(err => {
-        //     console.log('post error', err);
-        // })
+        Axios
+        .post("http://localhost:3333/smurfs")
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log('post error', err);
+        })
       e.preventDefault();
       props.postData();
     };
@@ -44,7 +45,7 @@ const AddSmurf = props => {
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 15})}
                     />
-                    {error.name && <p>Name is required</p>}
+                    
                     <input
                         type='number'
                         // name='age'
@@ -53,7 +54,7 @@ const AddSmurf = props => {
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 3})}
                     />
-                    {error.age && <p>Age is required</p>}
+                    
                     <input
                         type='text'
                         // name='height'
@@ -62,12 +63,12 @@ const AddSmurf = props => {
                         onChange={handleChange}
                         ref={register({ required: true, maxLength: 10})}
                     />
-                    {error.height && <p>Height is required</p>}    
+                    
 
                     <br />
 
-                    {/* <button onClick={handlePostData}>Update my Smurfs!!</button> */}
-                    <input className='submit' type='submit' />
+                    <button onClick={handlePostData}>Update my Smurfs!!</button>
+                    {/* <input className='submit' type='submit' /> */}
                 </form>
             </div>
         )}
