@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import SmurfForm from './SmurfForm';
 import SmurfList from './SmurfList';
+import AddSmurf from './AddSmurf';
 import { createStore, applyMiddleware } from 'redux';
 import { smurfReducer as reducer } from '../reducers/smurfReducer';
 import { Provider } from 'react-redux';
@@ -18,6 +19,7 @@ export default function App() {
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
         <SmurfForm />
+        <AddSmurf />
         <SmurfList />
       </div>
     </Provider>
